@@ -19,7 +19,7 @@
   	# Install puppet-agent
   	yum install -y puppet-agent
 
-  	# Create env dir for agent
+  	# Create env dir for agent upon successful installation
   	if [ $? -eq "0" ]
   	then
         	if [ $1 != "production"  ]
@@ -46,7 +46,7 @@
   	if [ "$?" -ne "0" ]
   	then
      		echo "Unable to start puppet agent" ;
-     	exit 10 ;
+     	exit 21 ;
   	fi
 
   fi
