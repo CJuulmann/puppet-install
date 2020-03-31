@@ -13,8 +13,17 @@
         echo "Please provide 1. Puppet server hostname, 2. agent environemnt"
         exit 20
   else
-	 # Download puppet resources
-  	rpm -Uvh https://yum.puppetlabs.com/puppet6-release-el-7.noarch.rpm
+	rel=$(rpm -q centos-release | cut -d '-' -f 3)
+	case "$rel" in
+		*7*)
+		  # Download puppet resource for centos 7
+  		  rpm -Uvh https://yum.puppetlabs.com/puppet6-release-el-7.noarch.rpm
+		;;
+		*6*) 
+		  # Download puppet resource for centos 6
+		  rpm -Uvh https://yum.puppetlabs.com/puppet6-release-el-6-noarch.rpm
+		;;
+	esac
 
   	# Install puppet-agent
   	yum install -y puppet-agent
@@ -48,5 +57,4 @@
      		echo "Unable to start puppet agent" ;
      	exit 21 ;
   	fi
-
   fi
