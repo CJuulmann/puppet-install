@@ -21,7 +21,7 @@
 		;;
 		*6*) 
 		  # Download puppet resource for centos 6
-		  rpm -Uvh https://yum.puppetlabs.com/puppet6-release-el-6-noarch.rpm
+		  rpm -Uvh https://yum.puppetlabs.com/puppet6-release-el-6.noarch.rpm 
 		;;
 	esac
 
