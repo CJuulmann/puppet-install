@@ -31,7 +31,7 @@
   	# Create env dir for agent upon successful installation
   	if [ $? -eq "0" ]
   	then
-        	if [ $1 != "production"  ]
+        	if [ $2 != "production"  ]
         	then
                 	cp -r /etc/puppetlabs/code/environments/production /etc/puppetlabs/code/environments/$2
         	fi
@@ -46,7 +46,7 @@
   	environment = $2
   	runinterval = 1h" | tee --append /etc/puppetlabs/puppet/puppet.conf
 
-  	# Possibly provide master ip for hosts file
+  	# Provide master ip for hosts file
 
   	# Start puppet agent
   	PUPPET="/opt/puppetlabs/bin/puppet" ;
